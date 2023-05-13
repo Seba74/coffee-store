@@ -1,0 +1,142 @@
+.comercializacion-container {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: max-content;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../../../img/quienes-somos/bg.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding-bottom: 10rem;
+}
+
+.coffee-img-container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 0px;
+  right: 60px;
+  width: 408px;
+  height: 100%;
+  overflow: hidden;
+  transform: scaleX(-1), rotate(190deg);
+}
+
+.comerc-content {
+  display: flex;
+  width: 120rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.comerc-title {
+  font-size: 4rem;
+}
+
+.comerc-subtitle {
+  font-size: 8rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.comerc-card-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 4rem;
+}
+
+.comerc-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 800px;
+}
+
+.comerc-card .comerc-type {
+  display: flex;
+  align-self: center;
+  height: 60px;
+  width: 200px;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--coffee);
+  color: var(--white);
+  border-radius: 10px;
+}
+
+.comerc-card .comerc-type h1 {
+  font-size: 2rem;
+  text-align: center;
+}
+
+.comerc-img-container {
+  display: flex;
+  width: max-content;
+  align-items: center;
+  justify-content: center;
+  column-gap: 20px;
+}
+
+.comerc-img-content {
+  width: 90px;
+  height: 68px;
+}
+
+.comerc-img-content img {
+  object-fit: contain;
+}
+
+.comerc-2{
+  margin-top: 6rem;
+}
+
+
+@media screen and (max-width: 1200px) {
+
+  .comercializacion-container {
+    background-size: auto;
+  }
+  .comerc-title {
+    font-size: 2rem;
+  }
+
+  .comerc-subtitle {
+    font-size: 5rem !important;
+    font-weight: 700;
+    margin-bottom: 40px;
+  }
+
+  .comerc-content {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .content-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    z-index: 99;
+  }
+
+  .comerc-content{
+    padding: 0 20px;
+  }
+
+  .comerc-card{
+    width: 100%;
+  }
+
+  .coffee-img-container{
+    display: none;
+  }
+
+}

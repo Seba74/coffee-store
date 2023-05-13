@@ -1,0 +1,39 @@
+.btn-cart{
+    position: fixed;
+    border-radius: 10px;
+    z-index: 999;
+    right: 30px;
+    top: 80px;
+    padding: 20px 20px 10px 10px;
+    box-shadow: var(--shadow-dark);
+}
+
+.cart-icon i {
+    position: relative;
+    font-size: 2rem !important;
+} 
+
+.cart-icon span {
+    width: max-content;
+    height: max-content;
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    padding: 1px 6px;
+    font-size: 1.2rem !important;
+    border-radius: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    
+    .btn-cart {
+        top: 10rem;
+        right: 10px;
+    }
+
+    .cart-icon span {
+        top: 6px;
+        right: 6px;
+    }
+    
+}

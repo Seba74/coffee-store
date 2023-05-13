@@ -1,0 +1,229 @@
+.home-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: max-content;
+}
+
+.welcome-message{
+  position: absolute;
+  width: 80vw;
+  left: 50%;
+  top: 1%;
+  transform: translateX(-50%);
+  display: flex;
+  font-size: 1.6rem;
+  padding: 10px;
+  z-index: 99;
+  text-align: center;
+}
+
+.swiper {
+  width: 90%;
+  height: 70%;
+  margin: 20px 0 ;
+  box-shadow: var(--shadow-dark);
+  border-radius: 5px;
+}
+
+.swiper-slide img {
+  object-fit: fill;
+  cursor: pointer;
+}
+
+.swiper-pagination-bullet {
+  background-color: var(--coffee);
+}
+
+.add-section {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: max-content;
+}
+
+.add-card{
+  height: max-content;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.add-card:first-child{
+  z-index: 10;
+}
+
+.add-card .img-container {
+  width: 100%;
+}
+
+.add-card .img-container img {
+  object-fit: contain;
+}
+
+
+/* DESTACADO */
+
+.products-section{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: max-content;
+}
+
+.products__title-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100px;
+}
+
+.products__title-section h1 {
+  text-align: center;
+  font-size: 4rem;
+  font-weight: 700;
+}
+
+.products-container {
+  position: relative;
+  display: grid;
+  width: max-content;
+  height: 100%;
+  grid-template-columns: repeat(2, 200px);
+  place-content: center;
+  padding: 20px 0;
+  margin-bottom: 6rem;
+}
+
+.card__img-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.card__img-container .bg-img {
+  position: absolute;
+  width: 140px;
+  height: 160px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.product-img-container {
+  width: 140px;
+  height: 160px;
+  z-index: 10;
+  transition: all 0.5s ease-in-out;
+}
+
+.product-img-container img {
+  object-fit: contain;
+}
+
+.product-card {
+  transition: all 0.5s ease-in-out;
+}
+
+.card-body {
+  width: 100%;
+  height: max-content;
+  text-align: center;
+}
+
+.card-body .card-text{
+  width: 100%;
+  height: 40px;  
+}
+
+.card-body h5 {
+  font-size: 1.8rem !important;
+}
+
+.card-body p {
+  font-size: 1.4rem !important;
+}
+
+.btn-container {
+  width: max-content;
+  position: absolute;
+  left: 0;
+  bottom: -4rem;
+}
+
+/* SOBRE */
+
+.about-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: max-content;
+  background-image: url("../../../../img/bg/bg-about-v1.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  row-gap: 8rem;
+  padding: 10rem 0;
+}
+
+.about__left-section, .about__right-section {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.about__description-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
+  width: 80%;
+  height: max-content;
+  text-align: center;
+}
+
+.about__left-section .about__description-container {
+  text-align: center;
+}
+
+.about__description-container h1 {
+  font-size: 3.2rem;
+  font-weight: 700;
+}
+
+.about__description-container h2 {
+  font-size: 2rem;
+}
+
+.about__description-container p {
+  font-size: 1.6rem;
+}
+
+.about__right-section .about__description-container {
+  text-align: center;
+}
+
+.about__img-container {
+  width: 90%;
+  height: auto;
+  border: 12px solid var(--coffee);
+  border-radius: 5px;
+  box-shadow: var(--shadow-light);
+}
+
+.about__img-container img {
+  box-shadow: var(--shadow-dark);
+}

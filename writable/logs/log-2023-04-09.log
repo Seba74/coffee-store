@@ -1,0 +1,13 @@
+CRITICAL - 2023-04-09 01:56:42 --> Undefined variable $products
+in APPPATH\Views\inc\components\productos\marca\views\home.php on line 55.
+ 1 APPPATH\Views\inc\components\productos\marca\views\home.php(55): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $products', 'C:\\xampp\\htdocs\\proyecto-seb-guevara\\app\\Views\\inc\\components\\productos\\marca\\views\\home.php', 55)
+ 2 APPPATH\Views\inc\components\productos\marca\main.php(3): require_once('C:\\xampp\\htdocs\\proyecto-seb-guevara\\app\\Views\\inc\\components\\productos\\marca\\views\\home.php')
+ 3 APPPATH\Views\producto_marca.php(4): require_once('C:\\xampp\\htdocs\\proyecto-seb-guevara\\app\\Views\\inc\\components\\productos\\marca\\main.php')
+ 4 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\proyecto-seb-guevara\\app\\Views\\producto_marca.php')
+ 5 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('producto_marca', [], true)
+ 7 APPPATH\Controllers\Home.php(244): view('producto_marca', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->productoMarca()
+ 9 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+10 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

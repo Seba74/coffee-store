@@ -1,0 +1,45 @@
+nav {
+  height: 80px;
+  box-shadow: var(--shadow-dark);
+}
+
+.logo-header {
+  width: 60px;
+  height: 60px;
+}
+
+.logo-container {
+  display: none;
+}
+
+.profile_content{
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+}
+
+.profile_content h4 {
+  margin: 0;
+}
+
+.dropdown-menu {
+  border: none;
+}
+
+.dropdown-item {
+  padding-bottom: 10px;
+  font-size: 1.4rem;
+}
+
+.nav-link {
+  font-size: 1.6rem !important;
+}
+
+.side-section {
+  background-color: var(--white);
+  box-shadow: var(--shadow-dark);
+  border-radius: 10px;
+  margin-top: 20px;
+  padding: 20px 10px;
+  z-index: 999;
+}

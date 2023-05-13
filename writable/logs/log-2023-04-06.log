@@ -1,0 +1,26 @@
+CRITICAL - 2023-04-06 19:25:06 --> Undefined variable $compra
+in APPPATH\Views\inc\components\principal\destacado.php on line 17.
+ 1 APPPATH\Views\inc\components\principal\destacado.php(17): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $compra', 'C:\\xampp\\htdocs\\proyecto-seb-guevara\\app\\Views\\inc\\components\\principal\\destacado.php', 17)
+ 2 APPPATH\Views\inc\components\main.php(4): require_once('C:\\xampp\\htdocs\\proyecto-seb-guevara\\app\\Views\\inc\\components\\principal\\destacado.php')
+ 3 APPPATH\Views\principal.php(10): require_once('C:\\xampp\\htdocs\\proyecto-seb-guevara\\app\\Views\\inc\\components\\main.php')
+ 4 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\proyecto-seb-guevara\\app\\Views\\principal.php')
+ 5 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('principal', [], true)
+ 7 APPPATH\Controllers\Home.php(32): view('principal', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->principal()
+ 9 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+10 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-04-06 19:25:45 --> Undefined variable $compra
+in APPPATH\Views\inc\components\principal\destacado.php on line 18.
+ 1 APPPATH\Views\inc\components\principal\destacado.php(18): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $compra', 'C:\\xampp\\htdocs\\proyecto-seb-guevara\\app\\Views\\inc\\components\\principal\\destacado.php', 18)
+ 2 APPPATH\Views\inc\components\main.php(4): require_once('C:\\xampp\\htdocs\\proyecto-seb-guevara\\app\\Views\\inc\\components\\principal\\destacado.php')
+ 3 APPPATH\Views\principal.php(10): require_once('C:\\xampp\\htdocs\\proyecto-seb-guevara\\app\\Views\\inc\\components\\main.php')
+ 4 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\proyecto-seb-guevara\\app\\Views\\principal.php')
+ 5 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('principal', [], true)
+ 7 APPPATH\Controllers\Home.php(32): view('principal', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->principal()
+ 9 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+10 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

@@ -1,0 +1,113 @@
+.footer-container{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+    height: 28rem;
+    background-color: var(--coffee);
+}
+.footer-header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 10rem;
+    column-gap: 40px;
+}
+
+.line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+    height: 1px;
+    background-color: var(--white);
+}
+
+.redes{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.footer-copyright{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 240px;
+    height: 200px;
+    background-color: var(--white);
+    box-shadow: var(--shadow-light);
+    padding: 0 5px;
+    border-radius: 5px 5px 0 0;
+}
+
+.footer-logo{
+    width: 120px;
+    height: 120px;
+    margin-bottom: 20px;
+}
+
+.footer-body{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
+}
+
+.footer-body .body-content {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    height: 100%;
+}
+
+.body-content h1 {
+    color: var(--white);
+    font-weight: 700;
+}
+
+.body-content ul li a {
+    color: var(--white);
+}
+
+
+@media screen and (max-width: 768px) {
+    .footer-container{
+        height: max-content;
+        padding-bottom: 25px;
+    }
+
+    .footer-body{
+        flex-direction: column;
+        height: max-content;
+        gap: 25px;
+    }
+    .footer-body .body-content {
+        width: 100%;
+        height: max-content;
+        gap: 15px;
+    }
+
+    .footer-copyright{
+        position: relative;
+        width: 40%;
+        height: max-content;
+        padding: 10px;
+        border-radius: 10px;
+        margin-bottom: 25px;
+    }
+}
+    

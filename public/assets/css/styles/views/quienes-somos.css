@@ -1,0 +1,213 @@
+/* HOME SECTION */
+
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: max-content;
+}
+
+.header-container {
+    width: 100%;
+    height: 72vh;
+}
+
+.first-content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: max-content;
+    background-image: url('../../../img/quienes-somos/bg.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding: 20px 0;
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+    height: 100%;
+}
+
+.content h1 {
+    font-size: 6rem;
+}
+
+.bg-sub{
+    width: 420px;
+    height: 40px;
+    background-image: url('../../../img/nuestra-historia/bg-slow.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin-top: -3rem;
+    margin-bottom: 5rem;
+}
+
+
+.text-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 30px;
+    width: 100%;
+    height: max-content;
+    font-size: 1.8rem;
+}
+
+.second-content-container{
+    width: 100%;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.second-content-container{
+    width: 100%;
+    height: max-content;
+    background-image: url('../../../img/quienes-somos/bg.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.second-content-container .text-container{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    height: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+    row-gap: 5rem;
+    margin: 4rem 0;
+}
+.mision {
+    margin-bottom: 4rem;
+}
+
+.vision h2, .mision h2 {
+    font-size: 6rem;
+}
+
+.second-content-container .text-container p {
+    font-size: 1.8rem;
+}
+
+.last-content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: max-content;
+    background-image: url('../../../img/quienes-somos/bg.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding: 20px 0;
+}
+
+.list-title{
+    display: flex;
+    width: 100%;
+    justify-content: start;
+}
+
+.politicas{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.politicas h2{
+    margin-bottom: 4rem;
+    font-size: 5rem;
+}
+
+.staff-container{
+    margin-top: 60px;
+}
+
+.staff-img{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    height: max-content;
+}
+
+.staff-container-img{
+    display: flex;
+}
+
+.staff-container-img-mobile{
+    display: none
+}
+
+.staff-bg{
+    margin-bottom: -4rem;
+}
+
+@media screen and (max-width: 768px) {
+
+    .title{
+        text-align: center;
+    }
+
+    .header-container {
+        height: 38vh;
+
+    }
+
+    .content h1 {
+        font-size: 6rem !important; 
+    }
+
+    .bg-sub{
+        width: 280px;
+        height: 30px;
+    }
+
+    .subtitle h3{
+        text-align: center;
+    }
+
+    .content {
+        width: 100%;
+        text-align: center;
+        padding: 0 20px;
+    }
+
+    .content h1 {
+        text-align: center;
+        font-size: 3.2rem;
+        margin: 0 20px;
+    }
+
+    .content p {
+        text-align: center;
+        font-size: 1.6rem;
+    }
+
+    .text-container p{
+        text-align: center;
+        font-size: 1.6rem;
+    }
+
+    .staff-container-img-mobile{
+        display: flex;
+    }
+
+    .staff-container-img{
+        display: none
+    }
+}
