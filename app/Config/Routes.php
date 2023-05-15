@@ -29,8 +29,7 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
-$routes->get('/principal', 'Home::principal');
+$routes->get('/', 'Home::principal');
 $routes->get('/cafe', 'Home::productoCafe');
 $routes->get('/marca', 'Home::productoMarca');
 $routes->get('/quienes-somos', 'Home::quienesSomos');
@@ -45,6 +44,20 @@ $routes->get('/politicas-privacidad', 'Home::privacidad');
 $routes->get('/panel-control', 'Home::panel');
 $routes->get('/perfil', 'Home::profile');
 
+// Productos
+
+// Page
+$routes->get('/producto/agregar', 'Home::crearProducto');
+
+// Create
+$routes->post('/producto/crear-producto', 'ProductosController::createProduct');
+
+// Edit
+$routes->get('/producto/editar/(:num)', 'Home::editarProducto/$1');
+    
+$routes->post('/producto/actualizar-producto', 'ProductosController::updateProduct');
+
+
 // LOGIN AND REGISTER
 $routes->get('/login', 'Home::login');
 $routes->get('/register', 'Home::register');
@@ -53,7 +66,7 @@ $routes->post('/usuario/register', 'UsuariosController::register');
 $routes->post('/usuario/login', 'UsuariosController::login');
 
 // Update User
-$routes->get('/usuario/domicilio', 'UsuariosController::addDomicilio');
+$routes->post('/usuario/domicilio', 'UsuariosController::addDomicilio');
 
 // Log Out
 $routes->get('/logout', 'UsuariosController::logout');

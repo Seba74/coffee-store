@@ -8,7 +8,7 @@
             <div class="card product-card">
                 <div class="card__img-container">
                     <div class="bg-img">
-                        <img src="assets/img/product/bg-product.png" alt="">
+                        <img src="assets/img/productos/bg-product.png" alt="">
                     </div>
                     <div class="product-img-container">
                         <img src="<?= base_url($product["image"]); ?>" alt="...">

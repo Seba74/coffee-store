@@ -56,14 +56,14 @@ class UsuariosController extends BaseController
                     'surname' => $user['apellido'],
                     'username' => $user['usuario'],
                     'email' => $user['email'],
-                    'perfil_id' => $user['perfil_id'],
+                    'role_id' => $user['role_id'],
                     'logged_in' => true
                 ];
 
                 // Establecer la sesión con los datos del usuario
                 $this->session->set($sessionData);
                 $this->session->setFlashdata('success', '!Bienvenido(a) ' . $user['nombre'] . ' a Corazón de Cafe!');
-                return redirect()->to(base_url('/principal'));
+                return redirect()->to(base_url('/'));
             } else {
                 $this->session->setFlashdata('errorLogin', 'Usuario o contraseña incorrectos.');
                 return redirect()->to(base_url('/login'));
@@ -81,7 +81,6 @@ class UsuariosController extends BaseController
     public function register()
     {
         try {
-            $usuarioModel = new UsuarioModel();
 
             $nombre = $this->request->getPost('name');
             $apellido = $this->request->getPost('surname');
@@ -104,7 +103,8 @@ class UsuariosController extends BaseController
                 'usuario' => $usuario,
                 'email' => $email,
                 'pass' => crypt($password, PASSWORD_DEFAULT),
-                'perfil_id' => 1,
+                'domicilio_id' => null,
+                'role_id' => 4,
                 'baja' => 'NO'
             ];
             $existeEmail = $this->usuarioModel->existEmail($email);
@@ -131,15 +131,16 @@ class UsuariosController extends BaseController
                     'surname' => $datos['apellido'],
                     'username' => $datos['usuario'],
                     'email' => $datos['email'],
-                    'perfil_id' => $datos['perfil_id'],
+                    'role_id' => $datos['role_id'],
+                    'domicilio_id' => $datos['domicilio_id'],
                     'logged_in' => true
                 ];
                 echo 'Usuario insertado correctamente.';
                 $this->session->set($sessionData);
                 $this->session->setFlashdata('success', '!Gracias ' . $nombre . ' por unirte a Corazón de Cafe!');
-                return redirect()->to(base_url('/principal'));
+                return redirect()->to(base_url('/'));
             } else {
-                $this->session->setFlashdata('error', 'El correo ya está registrado.');
+                $this->session->setFlashdata('error', 'Error al registrarse.');
                 echo 'Error al insertar el usuario.';
             }
         } catch (\CodeIgniter\Database\Exceptions\DatabaseException $e) {
@@ -154,39 +155,56 @@ class UsuariosController extends BaseController
     public function logout()
     {
         $this->session->destroy();
-        return redirect()->to(base_url('/principal'));
+        return redirect()->to(base_url('/'));
     }
 
     public function addDomicilio()
     {
-        // Get data of the form
-        $calle = $this->request->getPost('calle');
-        $numero = $this->request->getPost('numero');
-        $ciudad = $this->request->getPost('provincia');
-        $pais = $this->request->getPost('pais');
-        $telefono = $this->request->getPost('localidad');
-        $codigoPostal = $this->request->getPost('codigo_postal');
+        try {
+            // Get data from the form
+            $calle = $this->request->getPost('calle');
+            $numero = $this->request->getPost('numero');
+            $ciudad = $this->request->getPost('ciudad');
+            $pais = $this->request->getPost('pais');
+            $telefono = $this->request->getPost('telefono');
+            $codigoPostal = $this->request->getPost('codigo_postal');
 
-        $numero = (int) $numero;
-        $telefono = (int) $telefono;
-        $codigoPostal = (int) $codigoPostal;
+            if ($calle == null || $numero == null || $ciudad == null || $pais == null || $telefono == null || $codigoPostal == null) {
+                $this->session->setFlashdata('errorEmpty', 'Todos los campos son obligatorios.');
+                return redirect()->to(base_url('/perfil'));
+            }
 
-        $domicilioData = [
-            'calle' => $calle,
-            'numero' => $numero,
-            'ciudad' => $ciudad,
-            'pais' => $pais,
-            'telefono' => $telefono,
-            'codigo_postal' => $codigoPostal
-        ];
-        
-        // Get userId
-        $userId = $this->session->get('id');
 
-        // Get domicilioId
-        // $domicilioId = $this->domicilioModel->createDomicilio($domicilioData);
-        $domicilioId = 2;
-        // Insert domicilioId in user
-        $this->usuarioModel->addDomicilio($userId, $domicilioId);
+            $numero = (int) $numero;
+            $codigoPostal = (int) $codigoPostal;
+
+            $domicilioData = [
+                'calle' => $calle,
+                'numero' => $numero,
+                'ciudad' => $ciudad,
+                'pais' => $pais,
+                'telefono' => $telefono,
+                'codigo_postal' => $codigoPostal
+            ];
+
+            $user = $this->usuarioModel->getUserByEmail($this->session->get('email'));
+            $existeDomicilio = $this->domicilioModel->existDomicilio($user['domicilio_id']);
+
+            if ($existeDomicilio > 0) {
+                $this->domicilioModel->updateDomicilio($user['domicilio_id'], $domicilioData);
+            } else {
+                $domicilioId = $this->domicilioModel->createDomicilio($domicilioData);
+                $this->usuarioModel->addDomicilio($user['id'], $domicilioId);
+            }
+
+            $this->session->setFlashdata('success', 'Domicilio agregado correctamente.');
+            return redirect()->to(base_url('/perfil'));
+        } catch (\CodeIgniter\Database\Exceptions\DatabaseException $e) {
+            // Manejo específico para la excepción de CodeIgniter
+            echo "No es posible agregar el domicilio.";
+        } catch (\Exception $e) {
+            // Manejo genérico para otras excepciones
+            echo "Ocurrió un error: " . $e->getMessage();
+        }
     }
 }

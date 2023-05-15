@@ -3,6 +3,7 @@
 
   --coffee: #925a39;
   --coffee-hover: #7e4d31;
+  --coffee-light: rgb(146, 90, 57, 0.8);
   --white: #fff;
   --black: #000;
   --dark: #252525;
@@ -54,14 +55,14 @@
 }
 
 .btn-coffee {
-  background-color: var(--coffee);
+  background-color: var(--coffee-hover);
   color: var(--white);
   font-size: 1.6rem;
   padding: 8px 10px;
 }
 
 .btn-coffee:hover {
-  background-color: var(--coffee-hover);
+  background-color: var(--coffee);
   color: var(--white);
 }
 
@@ -76,6 +77,18 @@
 .btn-white:hover {
   background-color: var(--white);
   color: var(--black);
+}
+
+.btn-cancel {
+  background-color: var(--gray-dark);
+  color: var(--black);
+  font-size: 1.6rem;
+  padding: 8px 10px;
+}
+
+.btn-cancel:hover {
+  /* make a little bit dark */
+  background-color: var(--white);
 }
 
 .alert-er {

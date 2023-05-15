@@ -1,14 +1,14 @@
 <section class="panel-container">
+  <?php if (session()->getFlashdata('success')) : ?>
+    <div id="success-message" class="alert alert-success success-message"><?= session()->getFlashdata('success') ?></div>
+  <?php endif; ?>
   <div class="panel-products-container">
     <div class="table-header">
       <h2>Productos</h2>
-      <!-- btn add product -->
       <div class="btn-add-product">
-        <a href="<?= base_url('panel/productos/agregar') ?>" class="btn btn-white">Agregar Producto</a>
+        <a href="<?= base_url('producto/agregar') ?>" class="btn btn-white">Agregar Producto</a>
       </div>
-
     </div>
-
     <div class="panel-tools">
       <div class="search-container">
         <form>
@@ -26,99 +26,29 @@
             <th scope="col">Id</th>
             <th scope="col">Nombre</th>
             <th scope="col">Precio</th>
-            <th scope="col">Imagen</th>
+            <th scope="col">Categoria</th>
+            <th scope="col">Tipo</th>
+            <th scope="col">Estado</th>
             <th scope="col">Action</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>
-              <div class="edit-content">
-                <a href=""></a>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-            <td>
-              <div class="edit-content">
-                <a href=""></a>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-            <td>
-              <div class="edit-content">
-                <a href=""></a>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">4</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-            <td>
-              <div class="edit-content">
-                <a href=""></a>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">5</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-            <td>
-              <div class="edit-content">
-                <a href=""></a>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">6</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-            <td>
-              <div class="edit-content">
-                <a href=""></a>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">7</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-            <td>
-              <div class="edit-content">
-                <a href=""></a>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">8</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-            <td>
-              <div class="edit-content">
-                <a href=""></a>
-              </div>
-            </td>
-          </tr>
+          <?php foreach ($productos as $producto) : ?>
+            <tr>
+              <th scope="row"><?php echo $producto['id']; ?></th>
+              <td><?php echo $producto['nombre']; ?></td>
+              <td>$<?php echo $producto['precio']; ?></td>
+              <td><?php echo $producto['categoria_nombre']; ?></td>
+              <td><?php echo $producto['tipo_nombre']; ?></td>
+              <td><?php echo $producto['estado'] == 'SI' ? 'Activo' : 'Inactivo' ?></td>
+              <td>
+                <a href="<?php echo base_url('producto/editar/' . $producto['id']); ?>" class="btn btn-warning text-white fs-4">Editar</a>
+                <?php if ($user && isset($user['role_id']) && $user['role_id'] != 3) : ?>
+                  <a href="<?php echo base_url('producto/eliminar'); ?>" class="btn btn-danger fs-4">Eliminar</a>
+                <?php endif; ?>
+              </td>
+            </tr>
+          <?php endforeach; ?>
         </tbody>
       </table>
     </div>

@@ -15,9 +15,21 @@ class DomicilioModel extends Model
         return $this->insert($datos);
     }
 
+    public function updateDomicilio($id, $datos)
+    {
+        $this->where('id', $id);
+        return $this->update($id, $datos);
+    }
+
     public function getDomicilioById($id)
     {
         $data = $this->where('id', $id);
         return $data->get()->getRowArray();
+    }
+
+    public function existDomicilio($id)
+    {
+        $data = $this->where('id', $id);
+        return $data->countAllResults();
     }
 }

@@ -38,7 +38,7 @@ setTimeout(() => {
     successMessage.style.transition = 'all 1s ease-in-out';
     successMessage.style.opacity = '0';
   }
-}, 3000);
+}, 2500);
 
 
 const modals = document.getElementsByClassName('modal');

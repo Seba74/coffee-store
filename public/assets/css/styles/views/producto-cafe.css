@@ -166,8 +166,13 @@
   transition: all 0.3s ease-in-out;
 }
 
+.card-text .add-cart:active {
+  transform: scale(0.9);
+  transition: all 0.3s ease-in-out;
+}
+
 .card-text .add-cart:hover {
-  box-shadow: var(--shadow-dark);
+  background-color: var(--coffee-hover);
   transition: all 0.3s ease-in-out;
 }
 
@@ -214,7 +219,7 @@
 .product-card:hover {
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
   transition: all 0.3s ease-in-out;
-}
+} 
 
 @media screen and (max-width: 768px) {
   .coffee-header {

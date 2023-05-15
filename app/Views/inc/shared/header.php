@@ -4,14 +4,14 @@
 
   </div>
   <div class="logo-container position-fixed">
-    <a href="<?= base_url("principal"); ?>" class="img-container animation-top">
-      <img src="assets/img/logo/coffee-logo.png" alt="">
+    <a href="<?= base_url(""); ?>" class="img-container animation-top">
+      <img src="<?= base_url('assets/img/logo/coffee-logo.png') ?>" alt="">
     </a>
   </div>
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-      <a href="<?= base_url("principal"); ?>" class="logo-header navbar-brand text-coffee fs-1 title-font">
-        <img src="assets/img/logo/coffee-logo.png" class="hide">
+      <a href="<?= base_url(""); ?>" class="logo-header navbar-brand text-coffee fs-1 title-font">
+        <img src="<?= base_url('assets/img/logo/coffee-logo.png') ?>" class="hide">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -52,7 +52,7 @@
               Trabaja con nosotros
             </a>
           </li>
-          <?php if ($user && isset($user['perfil_id']) && $user['perfil_id'] == 1) : ?>
+          <?php if ($user && isset($user['role_id']) && $user['role_id'] != 4) : ?>
             <li class="nav-item">
               <a class="nav-link" href="<?= base_url("panel-control"); ?>">
                 Panel de Control

@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.0.0-beta2/css/all.css">
-<link rel="stylesheet" href="assets/css/main.css">
+<link rel="stylesheet" href="<?= base_url('assets/css/main.css') ?>">
 <link rel="stylesheet" href="<?= base_url($css_file) ?>">
 
 <!-- Mobile styles -->
@@ -13,5 +13,5 @@
 <!-- Desktop styles -->
 <link rel="stylesheet" href="<?= base_url("assets/css/styles/shared/responsive/header.css"); ?>" media="screen and (max-width: 768px)">
 
-<link rel="icon" href="assets/img/logo/coffee.png" type="image/x-icon">
+<link rel="icon" href="<?= base_url('assets/img/logo/coffee.png') ?>" type="image/x-icon">
 <title><?= $titulo ?></title>
