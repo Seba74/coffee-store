@@ -10,49 +10,54 @@
             <?php if (!$isMobile) : ?>
                 <div class="filter-container">
                     <div class="filter-content">
-                        <div class="title-container">
-                            <h1>Productos</h1>
-                        </div>
-                        <div class="order-by">
-                            <div class="label">
-                                <h3>Ordenar Por</h3>
-                            </div>
-                            <select>
-                                <option selected value="1">Precio mayor</option>
-                                <option value="2">Precio menor</option>
-                            </select>
-                        </div>
-                        <div class="products-filter-content">
-                            <div class="filter-types">
-                                <h3>Café Empacado</h3>
-                                <div class="filter-type">
-                                    <a>
-                                        <p>Liofilizado / Soluble</p>
-                                    </a>
+                        <form id="filter-form" action="<?= base_url("producto/filtrar/2"); ?>" method="POST">
+                            <div class="filter-content">
+                                <div class="title-container">
+                                    <h1>Filtros</h1>
+                                </div>
+                                <div class="order-by">
+                                    <div class="label">
+                                        <h3>Ordenar Por</h3>
+                                    </div>
+                                    <select name="orderBy">
+                                        <option value="1" <?= $filters['orderBy'] == 1 ? 'selected' : '' ?>>Precio menor</option>
+                                        <option value="2" <?= $filters['orderBy'] == 2 ? 'selected' : '' ?>>Precio mayor</option>
+                                    </select>
+                                </div>
+                                <div class="order-by">
+                                    <div class="label">
+                                        <h3>Tipo de Café</h3>
+                                    </div>
+                                    <select name="tipo">
+                                        <option value="0" <?= $filters['tipoCafe'] == 0 ? 'selected' : '' ?>>Todos</option>
+                                        <option value="1" <?= $filters['tipoCafe'] == 1 ? 'selected' : '' ?>>Línea Premium</option>
+                                        <option value="2" <?= $filters['tipoCafe'] == 2 ? 'selected' : '' ?>>Línea Origen</option>
+                                        <option value="3" <?= $filters['tipoCafe'] == 3 ? 'selected' : '' ?>>Línea Sostenible</option>
+                                    </select>
+                                </div>
+                                <div class="order-by">
+                                    <div class="label">
+                                        <h3>Categoría</h3>
+                                    </div>
+                                    <select name="categoria">
+                                        <option value="0" <?= $filters['categoria'] == 0 ? 'selected' : '' ?>>Todos</option>
+                                        <option value="1" <?= $filters['categoria'] == 1 ? 'selected' : '' ?>>Café en Grano</option>
+                                        <option value="2" <?= $filters['categoria'] == 2 ? 'selected' : '' ?>>Café Molido</option>
+                                        <option value="3" <?= $filters['categoria'] == 3 ? 'selected' : '' ?>>Café Soluble</option>
+                                    </select>
+                                </div>
+                                <div class="form-footer-section">
+                                    <button type="submit" class="btn btn-coffee btn-block">Aplicar Filtros</button>
                                 </div>
                             </div>
-                            <div class="filter-types">
-                                <h3>Molido / Grano</h3>
-                                <div class="filter-type">
-                                    <a>
-                                        <p>Linea Premium Selection</p>
-                                    </a>
-                                    <a>
-                                        <p>Cafés de Origen</p>
-                                    </a>
-                                    <a>
-                                        <p>Linea Sostenible</p>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             <?php endif; ?>
 
             <div class="search-container">
-                <form>
-                    <input type="text" placeholder="Buscar...">
+                <form action="<?= base_url("producto/filtrar/2"); ?>" method="POST">
+                    <input type="text" placeholder="Buscar..." value="<?= $filters['text'] ?>" name="text">
                     <button type="submit">
                         <i class="fal fa-mug-hot"></i>
                     </button>
@@ -66,39 +71,47 @@
                     <ul class="dropdown-menu">
                         <div class="filter-container">
                             <div class="filter-content">
-                                <div class="order-by">
-                                    <div class="label">
-                                        <h3>Ordenar Por</h3>
-                                    </div>
-                                    <select>
-                                        <option selected value="1">Precio mayor</option>
-                                        <option value="2">Precio menor</option>
-                                    </select>
-                                </div>
-                                <div class="products-filter-content">
-                                    <div class="filter-types">
-                                        <h3>Café Empacado</h3>
-                                        <div class="filter-type">
-                                            <a>
-                                                <p>Liofilizado / Soluble</p>
-                                            </a>
+                                <form id="filter-form" action="<?= base_url("producto/filtrar"); ?>" method="POST">
+                                    <div class="filter-content">
+                                        <div class="title-container">
+                                            <h1>Filtros</h1>
+                                        </div>
+                                        <div class="order-by">
+                                            <div class="label">
+                                                <h3>Ordenar Por</h3>
+                                            </div>
+                                            <select name="orderBy">
+                                                <option value="1" <?= $filters['orderBy'] == 1 ? 'selected' : '' ?>>Precio menor</option>
+                                                <option value="2" <?= $filters['orderBy'] == 2 ? 'selected' : '' ?>>Precio mayor</option>
+                                            </select>
+                                        </div>
+                                        <div class="order-by">
+                                            <div class="label">
+                                                <h3>Tipo de Café</h3>
+                                            </div>
+                                            <select name="tipo">
+                                                <option value="0" <?= $filters['tipoCafe'] == 0 ? 'selected' : '' ?>>Todos</option>
+                                                <option value="1" <?= $filters['tipoCafe'] == 1 ? 'selected' : '' ?>>Línea Premium</option>
+                                                <option value="2" <?= $filters['tipoCafe'] == 2 ? 'selected' : '' ?>>Línea Origen</option>
+                                                <option value="3" <?= $filters['tipoCafe'] == 3 ? 'selected' : '' ?>>Línea Sostenible</option>
+                                            </select>
+                                        </div>
+                                        <div class="order-by">
+                                            <div class="label">
+                                                <h3>Categoría</h3>
+                                            </div>
+                                            <select name="categoria">
+                                                <option value="0" <?= $filters['categoria'] == 0 ? 'selected' : '' ?>>Todos</option>
+                                                <option value="1" <?= $filters['categoria'] == 1 ? 'selected' : '' ?>>Café en Grano</option>
+                                                <option value="2" <?= $filters['categoria'] == 2 ? 'selected' : '' ?>>Café Molido</option>
+                                                <option value="3" <?= $filters['categoria'] == 3 ? 'selected' : '' ?>>Café Soluble</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-footer-section">
+                                            <button type="submit" class="btn btn-coffee btn-block">Aplicar Filtros</button>
                                         </div>
                                     </div>
-                                    <div class="filter-types">
-                                        <h3>Molido / Grano</h3>
-                                        <div class="filter-type">
-                                            <a>
-                                                <p>Linea Premium Selection</p>
-                                            </a>
-                                            <a>
-                                                <p>Cafés de Origen</p>
-                                            </a>
-                                            <a>
-                                                <p>Linea Sostenible</p>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
                     </ul>
@@ -112,7 +125,7 @@
                                 <img src="assets/img/productos/bg-product.png" alt="">
                             </div>
                             <div class="product-img-container">
-                                <img src="<?= base_url($product["image"]); ?>" alt="...">
+                                <img src="<?= $product["imagePath"]; ?>" alt="<?= ($product["nombre"]); ?>">
                             </div>
                         </div>
                         <div class="card-body w-100 card-modal">
@@ -120,10 +133,10 @@
                                 <div id="modal" class="modal need-login">Inicia sesión para poder agregar productos a la canasta</div>
                             <?php endif; ?>
                             <div class="card-title">
-                                <h5 class="text-coffee card-price">$<?= $product["price"]; ?> USD</h5>
+                                <h5 class="text-coffee card-price">$<?= $product["precio"]; ?> ARS</h5>
                             </div>
                             <div class="card-text">
-                                <p class="card-name"><?= $product["name"]; ?></p>
+                                <p class="card-name"><?= $product["nombre"]; ?></p>
                                 <?php if (isset($user['logged_in']) && $user['logged_in']) : ?>
                                     <button type="button" class="add-cart" data-array="<?php echo htmlentities(json_encode($product)); ?>" onclick='addToCart(this)'>
                                         <p>Agregar a</p>

@@ -7,6 +7,9 @@
 
 <body>
     <?php require_once('inc/shared/header.php') ?>
+    <?php if ($user && isset($user['logged_in'])) : ?>
+        <?php require_once('inc/shared/cart.php') ?>
+    <?php endif; ?>
     <?= $this->renderSection('content') ?>
     <?php require_once('inc/shared/footer.php') ?>
 

@@ -1,10 +1,7 @@
 <!-- NAVBAR -->
 <header class="position-relative header-main-container">
-  <div class="add-header">
-
-  </div>
   <div class="logo-container position-fixed">
-    <a href="<?= base_url(""); ?>" class="img-container animation-top">
+    <a href="<?= base_url(""); ?>" class="img-container animation-join">
       <img src="<?= base_url('assets/img/logo/coffee-logo.png') ?>" alt="">
     </a>
   </div>
@@ -16,22 +13,12 @@
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="side-section collapse navbar-collapse animation-right" id="navbarNavDropdown">
+      <div class="side-section collapse navbar-collapse animation-join" id="navbarNavDropdown">
         <ul class="items-container navbar-nav">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <li class="nav-item">
+            <a class="nav-link" href="<?= base_url("productos"); ?>">
               Productos
             </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="<?= base_url("cafe"); ?>">
-                  <i class="fa-solid fa-right"></i>
-                  Café grano/molido
-                </a></li>
-              <li><a class="dropdown-item" href="<?= base_url("marca"); ?>">
-                  <i class="fa-solid fa-right"></i>
-                  Articulos de marca
-                </a></li>
-            </ul>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -54,12 +41,12 @@
           </li>
           <?php if ($user && isset($user['role_id']) && $user['role_id'] != 4) : ?>
             <li class="nav-item">
-              <a class="nav-link" href="<?= base_url("panel-control"); ?>">
-                Panel de Control
+              <a class="nav-link" href="<?= base_url("gestion-productos"); ?>">
+                Gestión de Productos
               </a>
             </li>
           <?php endif; ?>
-          <?php if ($user && isset($user['logged_in']) && $user['logged_in']) : ?>
+          <?php if ($user && isset($user['logged_in'])): ?>
             <li class="nav-item dropdown logged-container">
               <a class="nav-link dropdown-toggle profile_content" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="fa-solid fa-coffee-bean"></i>
@@ -68,9 +55,9 @@
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="<?= base_url("perfil"); ?>">
                     <i class="fa-solid fa-user"></i>
-                    Perfil
+                    Mi Cuenta
                   </a></li>
-                <li><a class="dropdown-item" href="<?= base_url("logout"); ?>">
+                <li><a class="dropdown-item" href="<?= base_url("logout"); ?>" id="logout">
                     <i class="fa-solid fa-sign-out"></i>
                     Salir
                   </a></li>

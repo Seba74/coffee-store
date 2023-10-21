@@ -1,0 +1,148 @@
+.panel-container {
+  width: 100%;
+  min-height: 100vh;
+  height: max-content;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-image: url("../../../img/quienes-somos/bg.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.success-message {
+  position: absolute;
+  left: 50%;
+  top: 8%;
+  transform: translateX(-50%);
+  display: flex;
+  z-index: 99;
+}
+
+.panel-products-container {
+  width: 78%;
+  height: 100%;
+  display: flex;
+  margin: 5rem 0;
+  flex-direction: column;
+  border: 2px solid var(--coffee);
+  border-radius: 5px;
+}
+
+.panel-products-container .table-header {
+  background-color: var(--coffee);
+  color: var(--white);
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+
+.panel-tools {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.panel-tools .search-container {
+  width: 60%;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+}
+
+.panel-tools .search-container form {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--coffee);
+  background-color: transparent;
+}
+
+.panel-tools .search-container input[type="text"] {
+  flex-grow: 1;
+  height: 40px;
+  padding-left: 40px;
+  background-size: 20px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+.panel-tools .search-container button[type="submit"] {
+  height: 50px;
+  width: 50px;
+  padding-right: 10px;
+  border: none !important;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.panel-tools .filter-container{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.panel-tools .filter-container .filter-content{
+  display: flex;
+  width: max-content;
+  align-items: center;
+  justify-content: center;
+  column-gap: 20px;
+  font-size: 1.4rem;
+}
+
+
+.table-content {
+  border-top: 2px solid var(--coffee);
+  margin-bottom: 0;
+}
+
+.table-content tbody tr th {
+  padding-left: 10px;
+}
+
+.table-content thead tr th:first-child {
+  padding-left: 10px;
+}
+
+.btn-delete {
+  font-size: 1.6rem;
+  padding: 8px;
+}
+
+@media screen and (max-width: 768px) {
+  
+  .panel-products-container {
+    width: 96%;
+  }
+  .panel-tools .search-container {
+    padding: 0 5px;
+  }
+  .panel-tools .search-container form {
+    width: 100%;
+  }
+  .panel-tools .search-container input[type="text"] {
+    padding-left: 20px;
+  }
+  .panel-tools .search-container button[type="submit"] {
+    padding-right: 0;
+  }
+
+  .btn-table-actions {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+  }
+}

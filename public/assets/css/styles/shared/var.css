@@ -61,9 +61,24 @@
   padding: 8px 10px;
 }
 
+.btn-coffee:disabled {
+  background-color: var(--coffee-hover);
+  color: var(--white);
+  font-size: 1.6rem;
+}
+
 .btn-coffee:hover {
   background-color: var(--coffee);
   color: var(--white);
+}
+
+.btn-coffee:active {
+  background-color: var(--coffee);
+  color: var(--white);
+}
+
+.btn-coffee:focus {
+  outline: none;
 }
 
 .btn-white {

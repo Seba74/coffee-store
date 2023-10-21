@@ -47,5 +47,4 @@ class UsuarioModel extends Model
     {
         return $this->update($id, ['domicilio_id' => $domicilioId]);
     }
-    // ... otros métodos para interactuar con la tabla de usuarios
 }

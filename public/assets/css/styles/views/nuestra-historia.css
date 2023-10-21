@@ -95,7 +95,7 @@
 @media screen and (max-width: 768px) {
 
     .header-container {
-        height: 40vh;
+        height: 35vh;
 
     }
 
@@ -110,23 +110,29 @@
 
     .content {
         width: 100%;
-        text-align: center;
+        text-align: justify;
         padding: 0 20px;
     }
 
     .content h1 {
-        text-align: center;
+        text-align: justify;
         font-size: 3.2rem;
         margin: 0 20px;
     }
 
     .content p {
-        text-align: center;
+        text-align: justify;
         font-size: 1.6rem;
     }
 
+    .text-container{
+        width: 100% !important;
+        padding: 0 20px;
+    }
+
     .text-container p{
-        text-align: center;
-        font-size: 1.6rem;
+        text-align: justify;
+        font-size: 1.6rem !important;
+        width: 100%;
     }
 }

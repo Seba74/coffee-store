@@ -38,10 +38,6 @@ class UsuariosController extends BaseController
                 return redirect()->to(base_url('/login'));
             }
 
-            if ($email == null || $password == null) {
-                $this->session->setFlashdata('errorEmpty', 'Todos los campos son obligatorios.');
-                return redirect()->to(base_url('/login'));
-            }
             $password = (string) $password;
             $user = $this->usuarioModel->getUserByEmail($email);
 
@@ -57,6 +53,7 @@ class UsuariosController extends BaseController
                     'username' => $user['usuario'],
                     'email' => $user['email'],
                     'role_id' => $user['role_id'],
+                    'domicilio_id' => $user['domicilio_id'],
                     'logged_in' => true
                 ];
 
@@ -192,11 +189,14 @@ class UsuariosController extends BaseController
 
             if ($existeDomicilio > 0) {
                 $this->domicilioModel->updateDomicilio($user['domicilio_id'], $domicilioData);
+                $this->session->set('domicilio_id', $user['domicilio_id']);
             } else {
                 $domicilioId = $this->domicilioModel->createDomicilio($domicilioData);
+                $this->session->set('domicilio_id', $domicilioId);
                 $this->usuarioModel->addDomicilio($user['id'], $domicilioId);
             }
 
+            // Save data in the session
             $this->session->setFlashdata('success', 'Domicilio agregado correctamente.');
             return redirect()->to(base_url('/perfil'));
         } catch (\CodeIgniter\Database\Exceptions\DatabaseException $e) {

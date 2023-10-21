@@ -100,6 +100,10 @@
   .comercializacion-container {
     background-size: auto;
   }
+
+  .comercializacion-container p{
+    text-align: justify;
+  }
   .comerc-title {
     font-size: 2rem;
   }

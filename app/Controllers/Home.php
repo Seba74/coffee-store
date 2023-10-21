@@ -26,16 +26,14 @@ class Home extends BaseController
         $this->productoModel = new ProductoModel();
     }
 
-    public function index()
-    {
-        return view('welcome_message');
-    }
-
     public function principal()
     {
 
         $agent = $this->request->getUserAgent();
         $css_file = 'assets/css/styles/views/principal.css';
+        $path = 'assets/img/productos/producto-cafe/';
+        $cart = $this->session->get('cart');
+        $newId = $this->session->get('newId');
 
 
         $carousel = [
@@ -58,40 +56,10 @@ class Home extends BaseController
                 "assets/img/carousel/responsive/6.webp",
             ];
         }
-
-        $products = [
-            [
-                "name" => "Café Colina",
-                "price" => 20,
-                "image" => "assets/img/productos/producto-cafe/product-1.png"
-            ],
-            [
-                "name" => "Café Cumbre Descafeinado",
-                "price" => 34,
-                "image" => "assets/img/productos/producto-cafe/product-2.png"
-            ],
-            [
-                "name" => "Café Cumbre",
-                "price" => 30,
-                "image" => "assets/img/productos/producto-cafe/product-3.png"
-            ],
-            [
-                "name" => "Café Colina",
-                "price" => 20,
-                "image" => "assets/img/productos/producto-cafe/product-1.png"
-            ],
-            [
-                "name" => "Café Cumbre Descafeinado",
-                "price" => 34,
-                "image" => "assets/img/productos/producto-cafe/product-2.png"
-            ],
-            [
-                "name" => "Café Cumbre",
-                "price" => 30,
-                "image" => "assets/img/productos/producto-cafe/product-3.png"
-            ],
-
-        ];
+        $products = $this->productoModel->getProductsByTypeOrCategory("tipo_id", 1, 6);
+        foreach ($products as &$product) {
+            $product['imagePath'] = $path . $product['imagen'];
+        }
 
         return view('principal', [
             "products" => $products,
@@ -134,218 +102,40 @@ class Home extends BaseController
         ]);
     }
 
-    public function productoCafe()
+    public function productos()
     {
         $agent = $this->request->getUserAgent();
         $isMobile = $agent->isMobile();
-        $products = [
-            [
-                "name" => "Café Colina",
-                "price" => 20,
-                "image" => "assets/img/productos/producto-cafe/product-1.png"
-            ],
-            [
-                "name" => "Café Cumbre Descafeinado",
-                "price" => 34,
-                "image" => "assets/img/productos/producto-cafe/product-2.png"
-            ],
-            [
-                "name" => "Café Cumbre",
-                "price" => 30,
-                "image" => "assets/img/productos/producto-cafe/product-3.png"
-            ],
-            [
-                "name" => "Café Colina",
-                "price" => 20,
-                "image" => "assets/img/productos/producto-cafe/product-1.png"
-            ],
-            [
-                "name" => "Café Cumbre Descafeinado",
-                "price" => 34,
-                "image" => "assets/img/productos/producto-cafe/product-2.png"
-            ],
-            [
-                "name" => "Café Cumbre",
-                "price" => 30,
-                "image" => "assets/img/productos/producto-cafe/product-3.png"
-            ],
-            [
-                "name" => "Café Colina",
-                "price" => 20,
-                "image" => "assets/img/productos/producto-cafe/product-1.png"
-            ],
-            [
-                "name" => "Café Cumbre Descafeinado",
-                "price" => 34,
-                "image" => "assets/img/productos/producto-cafe/product-2.png"
-            ],
-            [
-                "name" => "Café Cumbre",
-                "price" => 30,
-                "image" => "assets/img/productos/producto-cafe/product-3.png"
-            ],
-            [
-                "name" => "Café Colina",
-                "price" => 20,
-                "image" => "assets/img/productos/producto-cafe/product-1.png"
-            ],
-            [
-                "name" => "Café Cumbre Descafeinado",
-                "price" => 34,
-                "image" => "assets/img/productos/producto-cafe/product-2.png"
-            ],
-            [
-                "name" => "Café Cumbre",
-                "price" => 30,
-                "image" => "assets/img/productos/producto-cafe/product-3.png"
-            ],
-            [
-                "name" => "Café Colina",
-                "price" => 20,
-                "image" => "assets/img/productos/producto-cafe/product-1.png"
-            ],
-            [
-                "name" => "Café Cumbre Descafeinado",
-                "price" => 34,
-                "image" => "assets/img/productos/producto-cafe/product-2.png"
-            ],
-            [
-                "name" => "Café Cumbre",
-                "price" => 30,
-                "image" => "assets/img/productos/producto-cafe/product-3.png"
-            ],
-            [
-                "name" => "Café Colina",
-                "price" => 20,
-                "image" => "assets/img/productos/producto-cafe/product-1.png"
-            ],
-            [
-                "name" => "Café Cumbre Descafeinado",
-                "price" => 34,
-                "image" => "assets/img/productos/producto-cafe/product-2.png"
-            ],
-            [
-                "name" => "Café Cumbre",
-                "price" => 30,
-                "image" => "assets/img/productos/producto-cafe/product-3.png"
-            ],
+        $path = 'assets/img/productos/producto-cafe/';
 
+
+        $filters = $this->session->get('filters');
+        $orderBy = !empty($filters[0]) ? $filters[0] : 1;
+        $tipoCafe = !empty($filters[1]) ? $filters[1] : 0;
+        $categoria = !empty($filters[2]) ? $filters[2] : 0;
+        $text = !empty($filters[3]) ? $filters[3] : '';
+
+        $products = $this->productoModel->getFilteredProducts($orderBy, $tipoCafe, $categoria, $text, true);
+
+        $filtersUsed = [
+            "orderBy" => $orderBy,
+            "tipoCafe" => $tipoCafe,
+            "categoria" => $categoria,
+            "text" => $text,
         ];
 
         $css_file = 'assets/css/styles/views/producto-cafe.css';
+        foreach ($products as &$product) {
+            $product['imagePath'] = $path . $product['imagen'];
+        }
 
-        return view('producto_cafe', [
-            "titulo" => "Corazón de Café - Café Grano/Molido",
+        return view('productos', [
+            "titulo" => "Corazón de Café - Productos",
             "products" => $products,
+            "filters" => $filtersUsed,
             "css_file" => $css_file,
             "user" => $this->user,
-            "isMobile" => $isMobile
-        ]);
-    }
-
-    public function productoMarca()
-    {
-
-        $products = [
-            [
-                "name" => "Café Colina",
-                "price" => 20,
-                "image" => "assets/img/productos/producto-cafe/product-1.png"
-            ],
-            [
-                "name" => "Café Cumbre Descafeinado",
-                "price" => 34,
-                "image" => "assets/img/productos/producto-cafe/product-2.png"
-            ],
-            [
-                "name" => "Café Cumbre",
-                "price" => 30,
-                "image" => "assets/img/productos/producto-cafe/product-3.png"
-            ],
-            [
-                "name" => "Café Colina",
-                "price" => 20,
-                "image" => "assets/img/productos/producto-cafe/product-1.png"
-            ],
-            [
-                "name" => "Café Cumbre Descafeinado",
-                "price" => 34,
-                "image" => "assets/img/productos/producto-cafe/product-2.png"
-            ],
-            [
-                "name" => "Café Cumbre",
-                "price" => 30,
-                "image" => "assets/img/productos/producto-cafe/product-3.png"
-            ],
-            [
-                "name" => "Café Colina",
-                "price" => 20,
-                "image" => "assets/img/productos/producto-cafe/product-1.png"
-            ],
-            [
-                "name" => "Café Cumbre Descafeinado",
-                "price" => 34,
-                "image" => "assets/img/productos/producto-cafe/product-2.png"
-            ],
-            [
-                "name" => "Café Cumbre",
-                "price" => 30,
-                "image" => "assets/img/productos/producto-cafe/product-3.png"
-            ],
-            [
-                "name" => "Café Colina",
-                "price" => 20,
-                "image" => "assets/img/productos/producto-cafe/product-1.png"
-            ],
-            [
-                "name" => "Café Cumbre Descafeinado",
-                "price" => 34,
-                "image" => "assets/img/productos/producto-cafe/product-2.png"
-            ],
-            [
-                "name" => "Café Cumbre",
-                "price" => 30,
-                "image" => "assets/img/productos/producto-cafe/product-3.png"
-            ],
-            [
-                "name" => "Café Colina",
-                "price" => 20,
-                "image" => "assets/img/productos/producto-cafe/product-1.png"
-            ],
-            [
-                "name" => "Café Cumbre Descafeinado",
-                "price" => 34,
-                "image" => "assets/img/productos/producto-cafe/product-2.png"
-            ],
-            [
-                "name" => "Café Cumbre",
-                "price" => 30,
-                "image" => "assets/img/productos/producto-cafe/product-3.png"
-            ],
-            [
-                "name" => "Café Colina",
-                "price" => 20,
-                "image" => "assets/img/productos/producto-cafe/product-1.png"
-            ],
-            [
-                "name" => "Café Cumbre Descafeinado",
-                "price" => 34,
-                "image" => "assets/img/productos/producto-cafe/product-2.png"
-            ],
-            [
-                "name" => "Café Cumbre",
-                "price" => 30,
-                "image" => "assets/img/productos/producto-cafe/product-3.png"
-            ],
-
-        ];
-
-        $css_file = 'assets/css/styles/views/producto-cafe.css';
-        return view('producto_marca', [
-            "titulo" => "Corazón de Café - Articulos de Marca",
-            "products" => $products,
-            "css_file" => $css_file,
-            "user" => $this->user,
+            "isMobile" => $isMobile,
         ]);
     }
 
@@ -414,18 +204,36 @@ class Home extends BaseController
         ]);
     }
 
-    public function panel()
+    public function gestionProductos()
     {
         if (empty($this->user) || (isset($this->user['role_id']) && $this->user['role_id'] == 4)) {
             return redirect()->to(base_url('/'));
         }
 
+        $css_file = 'assets/css/styles/views/gestion-productos.css';
+        $agent = $this->request->getUserAgent();
+        $isMobile = $agent->isMobile();
+
         // add tipoModel and categoryModel
         $categoryModel = new CategoriaModel();
         $typeModel = new TipoModel();
 
-        $products = $this->productoModel->getProducts();
+        $filters = $this->session->get('gestionFilters');
+        $orderBy = !empty($filters[0]) ? $filters[0] : 1;
+        $tipoCafe = !empty($filters[1]) ? $filters[1] : 0;
+        $categoria = !empty($filters[2]) ? $filters[2] : 0;
+        $text = !empty($filters[3]) ? $filters[3] : '';
+        $estado = !empty($filters[4]) ? $filters[4] : 0;
 
+        $products = $this->productoModel->getFilteredProducts($orderBy, $tipoCafe, $categoria, $text, $estado);
+
+        $filtersUsed = [
+            "orderBy" => $orderBy,
+            "tipoCafe" => $tipoCafe,
+            "categoria" => $categoria,
+            "text" => $text,
+            "estado" => $estado
+        ];
         foreach ($products as &$product) {
             $categoria = $categoryModel->getCategoryById($product['categoria_id']);
             $tipo = $typeModel->getTypeById($product['tipo_id']);
@@ -433,13 +241,14 @@ class Home extends BaseController
             $product['tipo_nombre'] = $tipo['nombre'];
         }
 
-        $css_file = 'assets/css/styles/views/panel.css';
 
-        return view('panel', [
-            "titulo" => "Corazón de Café - Panel de Control",
+        return view('gestion_productos', [
+            "titulo" => "Corazón de Café - Gestion de Productos",
             "css_file" => $css_file,
             "user" => $this->user,
             "productos" => $products,
+            "isMobile" => $isMobile,
+            "filters" => $filtersUsed
         ]);
     }
 
@@ -520,6 +329,30 @@ class Home extends BaseController
 
         return view('profile', [
             "titulo" => "Corazón de Café - Perfil",
+            "css_file" => $css_file,
+            "user" => $this->user,
+            "domicilioData" => $domicilioData,
+        ]);
+    }
+
+    public function checkout()
+    {
+        if (empty($this->user) || !isset($this->user['logged_in']) || !$this->user['logged_in']) {
+            return redirect()->to(base_url('/'));
+        }
+
+        $css_file = 'assets/css/styles/views/checkout.css';
+        $userData = $this->usuarioModel->getUserByEmail($this->user['email']);
+        $domicilioData = null;
+        if ($userData['domicilio_id']) {
+            $domicilioId = (int) ($userData['domicilio_id']);
+            $domicilioData = $this->domicilioModel->getDomicilioById($domicilioId);
+        } else {
+            return redirect()->to(base_url('/'));
+        }
+
+        return view('checkout', [
+            "titulo" => "Corazón de Café - Checkout",
             "css_file" => $css_file,
             "user" => $this->user,
             "domicilioData" => $domicilioData,

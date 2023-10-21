@@ -29,44 +29,71 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
+
+// HOME PAGE
 $routes->get('/', 'Home::principal');
-$routes->get('/cafe', 'Home::productoCafe');
-$routes->get('/marca', 'Home::productoMarca');
+
+// ABOUT US
 $routes->get('/quienes-somos', 'Home::quienesSomos');
 $routes->get('/nuestra-historia', 'Home::nuestraHistoria');
 $routes->get('/trabaja-con-nosotros', 'Home::trabajaConNosotros');
 $routes->get('/se-parte', 'Home::formularioSeParte');
 $routes->get('/involucra-tu-empresa', 'Home::formularioEmpresa');
+
+// CONTACT US
 $routes->get('/contactanos', 'Home::contactanos');
+
+// PAYMENT METHODS
 $routes->get('/comercializacion', 'Home::comercializacion');
+
+// TERMS AND CONDITIONS
 $routes->get('/terminos-condiciones', 'Home::terminos');
 $routes->get('/politicas-privacidad', 'Home::privacidad');
-$routes->get('/panel-control', 'Home::panel');
+
+// PANEL CONTROL
+$routes->get('/gestion-productos', 'Home::gestionProductos');
+
+// PROFILE
 $routes->get('/perfil', 'Home::profile');
 
-// Productos
 
-// Page
+// PRODUCTS
+
+// products Pages
+$routes->get('/productos', 'Home::productos');
+
+// Add Product
 $routes->get('/producto/agregar', 'Home::crearProducto');
 
-// Create
+// Create product
 $routes->post('/producto/crear-producto', 'ProductosController::createProduct');
 
-// Edit
+// Edit Product
 $routes->get('/producto/editar/(:num)', 'Home::editarProducto/$1');
-    
 $routes->post('/producto/actualizar-producto', 'ProductosController::updateProduct');
 
+// Delete Product
+$routes->get('/producto/eliminar/(:num)', 'ProductosController::deleteProduct/$1');
+
+// Filter
+$routes->post('/producto/filtrar/(:num)', 'ProductosController::filterProducts/$1');
 
 // LOGIN AND REGISTER
 $routes->get('/login', 'Home::login');
 $routes->get('/register', 'Home::register');
 
+// Register and Login User Controller
 $routes->post('/usuario/register', 'UsuariosController::register');
 $routes->post('/usuario/login', 'UsuariosController::login');
 
-// Update User
+// Update address user
 $routes->post('/usuario/domicilio', 'UsuariosController::addDomicilio');
+
+// Finalizar Compra
+$routes->get('/checkout', 'Home::checkout');
+
+// Guardar Canasta
+$routes->post('/cart/save-cart', 'CartController::getSaveCart');
 
 // Log Out
 $routes->get('/logout', 'UsuariosController::logout');

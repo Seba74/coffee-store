@@ -79,7 +79,7 @@
     <div class="second-content-container bg-white">
         <div class="text-container">
             <div class="politicas">
-                <h2 class="title title-font text-center">Políticas de Calidad y<br>Políticas de Capacitación</h2>
+                <h2 class="title title-font text-center">Políticas de Calidad y Políticas de Capacitación</h2>
                 <div class="bg-sub"></div>
                 <p>
                     Nuestra materia prima es el café orgánico y especial 100% natural, cultivado en las montañas de Colombia y otros orígenes, producido mediante técnicas naturales, sin fertilizantes y/o insumos de síntesis químicas, que lo hace un producto amigable para el medio ambiente y sus respectivos beneficios para la salud.

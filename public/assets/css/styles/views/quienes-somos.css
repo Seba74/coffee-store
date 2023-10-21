@@ -161,11 +161,11 @@
 
     .title{
         text-align: center;
+        font-size: 2rem;
     }
 
     .header-container {
         height: 38vh;
-
     }
 
     .content h1 {
@@ -178,28 +178,28 @@
     }
 
     .subtitle h3{
-        text-align: center;
+        text-align: justify;
     }
 
     .content {
         width: 100%;
-        text-align: center;
+        text-align: justify;
         padding: 0 20px;
     }
 
     .content h1 {
-        text-align: center;
+        text-align: justify;
         font-size: 3.2rem;
         margin: 0 20px;
     }
 
     .content p {
-        text-align: center;
+        text-align: justify;
         font-size: 1.6rem;
     }
 
     .text-container p{
-        text-align: center;
+        text-align: justify;
         font-size: 1.6rem;
     }
 

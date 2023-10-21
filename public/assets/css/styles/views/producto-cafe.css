@@ -1,5 +1,3 @@
-@import "./cart.css";
-
 .coffee-section {
   width: 100%;
   height: max-content;
@@ -107,9 +105,9 @@
   grid-row: 2 / 3;
   grid-column: 2 / 3;
   display: grid;
-  grid-template-columns: repeat(3, 280px);
+  grid-template-columns: repeat(auto-fill, 250px);
   place-content: center;
-  gap: 4rem;
+  gap: 3rem;
 }
 
 .card__img-container {
@@ -124,8 +122,8 @@
 
 .card__img-container .bg-img {
   position: absolute;
-  width: 250px;
-  height: 250px;
+  width: 200px;
+  height: 200px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -137,7 +135,7 @@
 }
 
 .card-title h5 {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
 }
 
 .card-text {
@@ -148,6 +146,7 @@
 }
 
 .card-text p {
+  font-size: 1.45rem;
   margin: 0 !important;
 }
 
@@ -177,8 +176,8 @@
 }
 
 .product-img-container {
-  width: 200px;
-  height: 220px;
+  width: 150px;
+  height: 180px;
   z-index: 10;
   transition: all 0.5s ease-in-out;
 }
@@ -219,7 +218,14 @@
 .product-card:hover {
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
   transition: all 0.3s ease-in-out;
-} 
+}
+
+@media screen and (min-width: 1280px) {
+  .products-container {
+    grid-template-columns: repeat(3, 250px);
+    gap: 4rem;
+  }
+}
 
 @media screen and (max-width: 768px) {
   .coffee-header {
@@ -248,7 +254,7 @@
     padding: 0;
   }
 
-  .search-container{
+  .search-container {
     width: 100%;
     height: 100px;
     display: flex;
@@ -257,11 +263,11 @@
     margin: 20px 0;
   }
 
-  .search-container form{
+  .search-container form {
     width: 90%;
   }
 
-  .dropdown-menu{
+  .dropdown-menu {
     left: 50% !important;
     top: 40px !important;
     transform: translateX(-50%) !important;
@@ -269,13 +275,13 @@
     box-shadow: var(--shadow-dark);
   }
 
-  .filter-container{
+  .filter-container {
     align-items: center;
     justify-content: center;
     height: max-content;
   }
 
-  .filter-content{
+  .filter-content {
     width: max-content;
     display: flex;
     flex-direction: column;

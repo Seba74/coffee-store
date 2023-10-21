@@ -11,22 +11,22 @@
                         <img src="assets/img/productos/bg-product.png" alt="">
                     </div>
                     <div class="product-img-container">
-                        <img src="<?= base_url($product["image"]); ?>" alt="...">
+                        <img src="<?= base_url($product["imagePath"]); ?>" alt="...">
                     </div>
                 </div>
                 <div class="card-body w-100">
                     <div class="card-title">
-                        <h5 class="text-coffee">$<?= $product["price"]; ?> USD</h5>
+                        <h5 class="text-coffee">$<?= $product["precio"]; ?> ARS</h5>
                     </div>
                     <div class="card-text">
-                        <p><?= $product["name"]; ?></p>
+                        <p><?= $product["nombre"]; ?></p>
                     </div>
                 </div>
             </div>
         <?php } ?>
         <div class="btn-container">
             <button class="btn btn-coffee bg-coffee">
-                <a href="<?= base_url("products"); ?>" class="text-white">Ver todos los productos</a>
+                <a href="<?= base_url("productos"); ?>" class="text-white">Ver todos los productos</a>
             </button>
         </div>
     </div>

@@ -21,25 +21,25 @@
         <div class="first-row">
           <?php if (!isset($product)) : ?>
             <div class="form-input">
-              <select class="form-select" aria-label="Default select example" id="status" name="status">
+              <select required class="form-select" aria-label="Default select example" id="status" name="status">
                 <option selected value="SI">Activo</option>
                 <option value="NO">Inactivo</option>
               </select>
             </div>
           <?php else : ?>
             <div class="form-input">
-              <select class="form-select" aria-label="Default select example" id="status" name="status">
+              <select required class="form-select" aria-label="Default select example" id="status" name="status">
                 <option value="SI" <?= ($product['estado'] == 'SI') ? 'selected' : '' ?>>Activo</option>
                 <option value="NO" <?= ($product['estado'] == 'NO') ? 'selected' : '' ?>>Inactivo</option>
               </select>
             </div>
           <?php endif; ?>
           <div class="form-input">
-            <input type="text" class="form-control" id="name" name="name" placeholder="Nombre del Producto" value="<?= isset($product['nombre']) ? $product['nombre'] : '' ?>">
+            <input required type="text" class="form-control" id="name" name="name" placeholder="Nombre del Producto" value="<?= isset($product['nombre']) ? $product['nombre'] : '' ?>">
           </div>
 
           <div class="form-input">
-            <input type="number" class="form-control" id="price" name="price" placeholder="Precio del Producto" value="<?= isset($product['precio']) ? $product['precio'] : '' ?>">
+            <input required type="text" class="form-control" id="price" name="price" placeholder="Precio del Producto" value="<?= isset($product['precio']) ? $product['precio'] : '' ?>">
           </div>
 
         </div>
@@ -50,7 +50,7 @@
           </div>
 
           <div class="form-input">
-            <select class="form-select" aria-label="Default select example" id="type" name="type">
+            <select required class="form-select" aria-label="Default select example" id="type" name="type">
               <option selected>Tipo de producto</option>
               <option value="1" <?= (isset($product['tipo_id']) && $product['tipo_id'] == '1') ? 'selected' : '' ?>>Premium</option>
               <option value="2" <?= (isset($product['tipo_id']) && $product['tipo_id'] == '2') ? 'selected' : '' ?>>Origen</option>
@@ -59,7 +59,7 @@
           </div>
 
           <div class="form-input">
-            <select class="form-select" aria-label="Default select example" id="category" name="category">
+            <select required class="form-select" aria-label="Default select example" id="category" name="category">
               <option selected>Categoría</option>
               <option value="1" <?= (isset($product['categoria_id']) && $product['categoria_id'] == '1') ? 'selected' : '' ?>>Café en Grano</option>
               <option value="2" <?= (isset($product['categoria_id']) && $product['categoria_id'] == '2') ? 'selected' : '' ?>>Café Molido</option>
@@ -77,7 +77,7 @@
           <?php endif; ?>
 
           <div class="btn-cancel-product">
-            <a href="<?= base_url('panel-control') ?>" class="btn btn-cancel">Cancelar</a>
+            <a href="<?= base_url('gestion-productos') ?>" class="btn btn-cancel">Cancelar</a>
           </div>
         </div>
       </div>

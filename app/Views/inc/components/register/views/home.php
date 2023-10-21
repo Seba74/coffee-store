@@ -37,7 +37,4 @@
       <a href="<?= base_url("login"); ?>" class="btn text-white btn-link btn-block mt-4"> ¿Ya tienes una cuenta? </a>
     </div>
   </div>
-  <!-- <div class="form-footer-section">
-    <a href="#" class="btn text-coffee btn-link btn-block"> ¿Olvidaste tu contraseña? </a>
-  </div> -->
 </section>

@@ -29,7 +29,7 @@
         <div class="body-content">
             <h1 class="fs-2">Sobre Corazón de Café</h1>
             <ul class="p-0 text-center">
-                <li><a href="<?= base_url("cafe"); ?>">Productos</a></li>
+                <li><a href="<?= base_url("productos"); ?>">Productos</a></li>
                 <li><a href="<?= base_url("quienes-somos"); ?>">Quienes Somos</a></li>
                 <li><a href="<?= base_url("nuestra-historia"); ?>">Nuestra Historia</a></li>
                 <li><a href="<?= base_url("trabaja-con-nosotros"); ?>">Trabaja con Nosotros</a></li>

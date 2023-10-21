@@ -107,25 +107,25 @@
 
     .content {
         width: 100%;
-        text-align: center;
+        text-align: justify;
         padding: 0 20px;
     }
 
     .content h1 {
-        text-align: center;
+        text-align: justify;
         font-size: 5rem;
         margin: 0 20px;
     }
 
     .content p {
-        text-align: center;
+        text-align: justify;
     }
 
     .involucrate-body {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        text-align: center;
+        text-align: justify;
     }
 
     .involucrate-header {
@@ -144,7 +144,7 @@
 
     .involucrate-body .inv-text {
         width: 100%;
-        text-align: center;
+        text-align: justify;
     }
 
     .involucrate-body .inv-text button {

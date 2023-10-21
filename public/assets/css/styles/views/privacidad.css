@@ -67,9 +67,14 @@
 }
 
 @media screen and (max-width: 768px) {
+
+  .home-container p {
+    text-align: justify;
+  }
+
   .header-container {
     object-fit: cover;
-    height: 54vh;
+    height: 44vh;
   }
 
   .content h1 {

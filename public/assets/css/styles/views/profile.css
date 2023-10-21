@@ -1,14 +1,13 @@
 .form-container {
   width: 100%;
-  height: max-content;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   background-image: url("../../../img/quienes-somos/bg.webp");
-  background-size: cover;
+  background-size: contain;
   background-position: center;
-  background-repeat: no-repeat;
-  padding: 80px 0;
 }
 
 .welcome-message {
@@ -40,11 +39,24 @@
 .form-content {
   display: flex;
   row-gap: 20px;
-  width: 400px;
+  width: 800px;
   height: max-content;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+.form-content .first-section-profile,
+.form-content .second-section-profile {
+  width: 100%;
+  display: flex;
+  gap: 20px;
+}
+
+.form-content .form-footer-section {
+  width: 100%;
+  display: flex;
+  align-items: start;
 }
 
 .input-text {
@@ -55,6 +67,90 @@
 .input-text input {
   height: 50px;
   font-size: 1.4rem;
+}
+
+.profile-content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70%;
+  margin-left: 30rem;
+}
+.profile-content .list-content {
+  width: max-content;
+  position: absolute;
+  left: -25rem;
+  top: 45%;
+  transform: translateY(-50%);  
+  border-radius: 10px;
+
+}
+
+.list-content {
+  display: flex;
+  align-items: center;
+  height: max-content;
+  box-shadow: var(--shadow-dark);
+  background-color: #fff;
+  padding: 40px 0;
+}
+
+.list-content .list-group {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.list-content .list-group a {
+  padding: 0 20px;
+  font-size: 2.2rem !important;
+}
+
+.list-content .list-group .active {
+  border-left: 5px solid var(--coffee) !important;
+  background-color: var(--white) !important;
+  color: var(--coffee) !important;
+}
+
+.info-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* SCROLLSPY */
+
+.scrollspy-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 600px;
+  overflow: hidden;
+}
+
+.info-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 140px 0;
+}
+
+.info-content:last-child {
+  margin-bottom: 60px;
+}
+
+.title-section {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.title-section h1 {
+  font-size: 3rem;
 }
 
 @media screen and (max-width: 768px) {
